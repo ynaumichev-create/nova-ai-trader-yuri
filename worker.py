@@ -1,0 +1,2 @@
+streamlit==1.47.1
+pandas==2.3.1

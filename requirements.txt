@@ -1,2 +1,86 @@
-streamlit==1.47.1
-pandas==2.3.1
+
+import json
+from pathlib import Path
+
+import pandas as pd
+import streamlit as st
+
+DATA_DIR = Path("data")
+STATE_FILE = DATA_DIR / "portfolio.json"
+TRADES_FILE = DATA_DIR / "trades.csv"
+SIGNALS_FILE = DATA_DIR / "latest_signals.csv"
+EQUITY_FILE = DATA_DIR / "equity.csv"
+
+st.set_page_config(page_title="NOVA AI Trader v1.1", layout="wide")
+st.title("NOVA AI Trader v1.1 — Autonomous Paper Trading")
+st.caption("Автоматическая виртуальная торговля по расписанию. Реальные деньги не подключены.")
+
+if STATE_FILE.exists():
+    state = json.loads(STATE_FILE.read_text(encoding="utf-8"))
+else:
+    state = {"balance": 1000.0, "positions": {}}
+
+equity = pd.read_csv(EQUITY_FILE) if EQUITY_FILE.exists() else pd.DataFrame()
+trades = pd.read_csv(TRADES_FILE) if TRADES_FILE.exists() else pd.DataFrame()
+signals = pd.read_csv(SIGNALS_FILE) if SIGNALS_FILE.exists() else pd.DataFrame()
+
+latest_equity = float(equity.iloc[-1]["equity"]) if not equity.empty else state["balance"]
+realized_pnl = float(trades.loc[trades["type"] == "CLOSE", "pnl"].sum()) if not trades.empty else 0.0
+
+c1, c2, c3, c4 = st.columns(4)
+c1.metric("Капитал", f"${latest_equity:.2f}")
+c2.metric("Свободный баланс", f"${state['balance']:.2f}")
+c3.metric("Открытых позиций", len(state["positions"]))
+c4.metric("Реализованный PnL", f"${realized_pnl:.2f}")
+
+st.subheader("Открытые позиции")
+if state["positions"]:
+    rows = []
+    latest_prices = dict(zip(signals["symbol"], signals["price"])) if not signals.empty else {}
+    for symbol, p in state["positions"].items():
+        price = float(latest_prices.get(symbol, p["entry"]))
+        pnl = (price - p["entry"]) * p["qty"] if p["side"] == "BUY" else (p["entry"] - price) * p["qty"]
+        rows.append({
+            "Монета": p["name"],
+            "Тикер": symbol,
+            "Сторона": p["side"],
+            "Вход": p["entry"],
+            "Текущая": price,
+            "Стоп": p["stop"],
+            "Тейк": p["take"],
+            "NOVA Score": p["score"],
+            "PnL": round(pnl, 4),
+            "Открыта": p["opened_at"],
+        })
+    st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+else:
+    st.info("Открытых позиций нет.")
+
+st.subheader("Кривая капитала")
+if not equity.empty:
+    equity["timestamp"] = pd.to_datetime(equity["timestamp"])
+    st.line_chart(equity.set_index("timestamp")[["equity"]])
+
+st.subheader("История сделок")
+if not trades.empty:
+    st.dataframe(trades.tail(200), use_container_width=True, hide_index=True)
+    closed = trades[trades["type"] == "CLOSE"]
+    if not closed.empty:
+        wins = closed[closed["pnl"] > 0]
+        losses = closed[closed["pnl"] < 0]
+        winrate = len(wins) / len(closed) * 100
+        gross_profit = wins["pnl"].sum()
+        gross_loss = abs(losses["pnl"].sum())
+        pf = gross_profit / gross_loss if gross_loss > 0 else float("inf")
+
+        a, b, c = st.columns(3)
+        a.metric("Закрыто сделок", len(closed))
+        b.metric("Win rate", f"{winrate:.1f}%")
+        c.metric("Profit Factor", "∞" if pf == float("inf") else f"{pf:.2f}")
+
+st.subheader("Последние сигналы")
+if not signals.empty:
+    filtered = signals[signals["signal"].isin(["BUY", "SELL"])].sort_values("nova_score", ascending=False)
+    st.dataframe(filtered.head(30), use_container_width=True, hide_index=True)
+
+st.info("Рабочий процесс GitHub Actions запускает виртуальную торговлю каждые 30 минут.")
