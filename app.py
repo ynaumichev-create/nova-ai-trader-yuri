@@ -1,249 +1,285 @@
 
 import json
+import time
 import urllib.parse
 import urllib.request
 
 import pandas as pd
 import streamlit as st
 
-SYMBOLS = {
-    "BTC-USD": "Bitcoin",
-    "ETH-USD": "Ethereum",
-    "SOL-USD": "Solana",
-    "XRP-USD": "XRP",
-    "BNB-USD": "BNB",
-    "ADA-USD": "Cardano",
-    "DOGE-USD": "Dogecoin",
-    "AVAX-USD": "Avalanche",
-    "LINK-USD": "Chainlink",
-    "DOT-USD": "Polkadot",
-}
+COINS_COUNT = 150
 
-TIMEFRAMES = {
-    "15m": ("15m", "1mo"),
-    "1h": ("1h", "3mo"),
-    "4h": ("1h", "6mo"),
-    "1d": ("1d", "2y"),
-}
+st.set_page_config(page_title="NOVA Scanner v0.7", layout="wide")
+st.title("NOVA AI Trader v0.7 — Alerts")
+st.caption("Сканер 150 монет, избранное и Telegram-уведомления. Сделки не открываются.")
 
-st.set_page_config(page_title="NOVA AI Trader v0.3", layout="wide")
-st.title("NOVA AI Trader v0.3")
-st.caption("Сканер рынка, несколько таймфреймов и объяснение сигналов. Только демо.")
+def get_json(url, headers=None, retries=3):
+    request_headers = {
+        "User-Agent": "Mozilla/5.0 NOVA-AI-Trader",
+        "Accept": "application/json",
+    }
+    if headers:
+        request_headers.update(headers)
 
-def get_json(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=30) as response:
-        return json.loads(response.read().decode("utf-8"))
+    last_error = None
+    for attempt in range(retries):
+        try:
+            request = urllib.request.Request(url, headers=request_headers)
+            with urllib.request.urlopen(request, timeout=35) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except Exception as exc:
+            last_error = exc
+            time.sleep(2 ** attempt)
+    raise RuntimeError(f"Источник данных недоступен: {last_error}")
 
-@st.cache_data(ttl=900)
-def fetch_yahoo(symbol, interval, data_range):
-    encoded = urllib.parse.quote(symbol)
-    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{encoded}?interval={interval}&range={data_range}&includePrePost=false"
-    result = get_json(url)["chart"]["result"][0]
-    timestamps = result["timestamp"]
-    quote = result["indicators"]["quote"][0]
+def post_form(url, payload):
+    data = urllib.parse.urlencode(payload).encode("utf-8")
+    request = urllib.request.Request(url, data=data, method="POST")
+    with urllib.request.urlopen(request, timeout=25) as response:
+        return response.read().decode("utf-8")
 
-    rows = []
-    for i, ts in enumerate(timestamps):
-        vals = [quote["open"][i], quote["high"][i], quote["low"][i], quote["close"][i], quote["volume"][i]]
-        if any(v is None for v in vals):
-            continue
-        rows.append({
-            "time": pd.to_datetime(ts, unit="s", utc=True),
-            "open": float(vals[0]),
-            "high": float(vals[1]),
-            "low": float(vals[2]),
-            "close": float(vals[3]),
-            "volume": float(vals[4]),
-        })
+@st.cache_data(ttl=300)
+def fetch_market():
+    params = urllib.parse.urlencode({
+        "vs_currency": "usd",
+        "order": "market_cap_desc",
+        "per_page": COINS_COUNT,
+        "page": 1,
+        "sparkline": "true",
+        "price_change_percentage": "1h,24h,7d,30d",
+    })
 
-    df = pd.DataFrame(rows).set_index("time")
-    if len(df) < 220:
-        raise RuntimeError("Недостаточно данных")
-    return df
+    key = st.secrets.get("COINGECKO_API_KEY", "")
+    headers = {"x-cg-demo-api-key": key} if key else {}
+    url = f"https://api.coingecko.com/api/v3/coins/markets?{params}"
 
-@st.cache_data(ttl=3600)
-def fear_greed():
+    data = get_json(url, headers=headers)
+    if not isinstance(data, list):
+        raise RuntimeError("CoinGecko вернул неожиданный ответ")
+    return data
+
+@st.cache_data(ttl=1800)
+def fetch_fear_greed():
     try:
         item = get_json("https://api.alternative.me/fng/?limit=1")["data"][0]
         return int(item["value"]), item["value_classification"]
     except Exception:
         return 50, "Neutral"
 
-def resample_4h(df):
-    return df.resample("4h").agg({
-        "open": "first",
-        "high": "max",
-        "low": "min",
-        "close": "last",
-        "volume": "sum",
-    }).dropna()
+def safe(value, default=0.0):
+    return float(value) if value is not None else default
 
-def indicators(df):
-    x = df.copy()
-    x["ema20"] = x["close"].ewm(span=20, adjust=False).mean()
-    x["ema50"] = x["close"].ewm(span=50, adjust=False).mean()
-    x["ema200"] = x["close"].ewm(span=200, adjust=False).mean()
+def trend_score(prices):
+    if not prices or len(prices) < 24:
+        return 0
+    series = pd.Series(prices, dtype="float64")
+    short = series.tail(24).mean()
+    long = series.tail(72).mean() if len(series) >= 72 else series.mean()
+    return 1 if short > long * 1.01 else -1 if short < long * 0.99 else 0
 
-    delta = x["close"].diff()
-    gain = delta.clip(lower=0).ewm(alpha=1/14, adjust=False).mean()
-    loss = (-delta.clip(upper=0)).ewm(alpha=1/14, adjust=False).mean()
-    rs = gain / loss.replace(0, float("nan"))
-    x["rsi"] = 100 - (100 / (1 + rs))
+def evaluate(coin, fear_value):
+    ch1h = safe(coin.get("price_change_percentage_1h_in_currency"))
+    ch24 = safe(coin.get("price_change_percentage_24h_in_currency"))
+    ch7d = safe(coin.get("price_change_percentage_7d_in_currency"))
+    ch30 = safe(coin.get("price_change_percentage_30d_in_currency"))
 
-    x["macd"] = x["close"].ewm(span=12, adjust=False).mean() - x["close"].ewm(span=26, adjust=False).mean()
-    x["macd_signal"] = x["macd"].ewm(span=9, adjust=False).mean()
+    market_cap = safe(coin.get("market_cap"))
+    volume = safe(coin.get("total_volume"))
+    volume_ratio = volume / market_cap if market_cap > 0 else 0
 
-    prev_close = x["close"].shift(1)
-    tr = pd.concat([
-        x["high"] - x["low"],
-        (x["high"] - prev_close).abs(),
-        (x["low"] - prev_close).abs(),
-    ], axis=1).max(axis=1)
-    x["atr"] = tr.ewm(alpha=1/14, adjust=False).mean()
+    current = safe(coin.get("current_price"))
+    high24 = safe(coin.get("high_24h"))
+    low24 = safe(coin.get("low_24h"))
+    range24 = (high24 - low24) / current * 100 if current > 0 else 0
 
-    direction = x["close"].diff().apply(lambda v: 1 if v > 0 else -1 if v < 0 else 0)
-    x["obv"] = (direction * x["volume"]).fillna(0).cumsum()
-    x["high20"] = x["high"].rolling(20).max()
-    x["low20"] = x["low"].rolling(20).min()
-    return x.dropna()
+    sparkline = (coin.get("sparkline_in_7d") or {}).get("price") or []
+    trend7 = trend_score(sparkline)
 
-def analyze(symbol, timeframe, fear_value):
-    interval, data_range = TIMEFRAMES[timeframe]
-    df = fetch_yahoo(symbol, interval, data_range)
-    if timeframe == "4h":
-        df = resample_4h(df)
-    df = indicators(df)
-
-    row = df.iloc[-1]
-    prev20 = df.tail(20)
-    price = float(row["close"])
+    score = 50
     reasons = []
-    agents = []
 
-    trend = 2 if price > row["ema20"] > row["ema50"] > row["ema200"] else -2 if price < row["ema20"] < row["ema50"] < row["ema200"] else 1 if price > row["ema50"] else -1
-    reasons.append("тренд вверх" if trend > 0 else "тренд вниз")
-    agents.append(("Trend", trend))
+    for value, weight, label in [
+        (ch1h, 1.0, "1ч"),
+        (ch24, 1.5, "24ч"),
+        (ch7d, 0.7, "7д"),
+        (ch30, 0.25, "30д"),
+    ]:
+        score += max(-12, min(12, value * weight))
+        if abs(value) >= 2:
+            reasons.append(f"{label}: {value:+.1f}%")
 
-    momentum = 1 if row["macd"] > row["macd_signal"] else -1
-    momentum += 1 if 52 <= row["rsi"] <= 68 else -1 if 32 <= row["rsi"] <= 48 else 0
-    reasons.append(f"RSI {row['rsi']:.1f}")
-    agents.append(("Momentum", momentum))
+    if volume_ratio >= 0.15:
+        score += 8
+        reasons.append("высокая ликвидность")
+    elif volume_ratio >= 0.05:
+        score += 4
+        reasons.append("нормальная ликвидность")
+    elif volume_ratio < 0.01:
+        score -= 10
+        reasons.append("низкая ликвидность")
 
-    volume = 1 if row["obv"] > prev20["obv"].iloc[0] else -1
-    reasons.append("объем подтверждает движение" if volume > 0 else "объем не подтверждает рост")
-    agents.append(("Volume", volume))
+    score += trend7 * 8
+    if trend7 > 0:
+        reasons.append("7-дневный тренд вверх")
+    elif trend7 < 0:
+        reasons.append("7-дневный тренд вниз")
 
-    price_action = 2 if price >= row["high20"] * 0.995 else -2 if price <= row["low20"] * 1.005 else 1 if price > row["ema20"] else -1
-    agents.append(("Price Action", price_action))
+    if range24 > 20:
+        score -= 14
+        reasons.append("экстремальная волатильность")
+    elif range24 > 10:
+        score -= 7
+        reasons.append("высокая волатильность")
 
-    sentiment = 1 if fear_value >= 60 else -1 if fear_value <= 40 else 0
-    agents.append(("Sentiment", sentiment))
+    if fear_value >= 70:
+        score += 3 if ch24 > 0 else -3
+    elif fear_value <= 30:
+        score -= 3 if ch24 < 0 else 2
 
-    atr_pct = float(row["atr"] / price * 100)
-    risk = -2 if atr_pct > 3.5 else -1 if atr_pct > 2 else 1
-    agents.append(("Risk", risk))
+    nova_score = int(max(0, min(100, round(score))))
 
-    score = trend + momentum + volume + price_action + sentiment
-    action = "WAIT" if risk <= -2 else "BUY" if score >= 5 else "SELL" if score <= -5 else "WAIT"
+    if nova_score >= 72 and ch24 > 0 and trend7 >= 0:
+        signal = "BUY"
+    elif nova_score <= 28 and ch24 < 0 and trend7 <= 0:
+        signal = "SELL"
+    else:
+        signal = "WAIT"
 
-    atr_value = float(row["atr"])
-    stop = price - 1.5 * atr_value if action == "BUY" else price + 1.5 * atr_value if action == "SELL" else None
-    take = price + 3.0 * atr_value if action == "BUY" else price - 3.0 * atr_value if action == "SELL" else None
-
-    nova_score = min(100, max(0, round(50 + score * 7 - max(0, atr_pct - 1.5) * 5)))
-    confidence = min(95, max(50, round(50 + abs(score) * 7)))
-
-    explanation = (
-        f"{action}: {', '.join(reasons)}. "
-        f"Волатильность ATR {atr_pct:.2f}%. "
-        f"Итоговый балл {score}."
-    )
+    risk = "Высокий" if range24 > 12 or market_cap < 100_000_000 else "Средний" if range24 > 6 else "Низкий"
 
     return {
-        "Инструмент": SYMBOLS[symbol],
-        "Тикер": symbol,
-        "Таймфрейм": timeframe,
-        "Сигнал": action,
+        "Место": coin.get("market_cap_rank"),
+        "Монета": coin.get("name"),
+        "Тикер": str(coin.get("symbol", "")).upper(),
+        "Сигнал": signal,
         "NOVA Score": nova_score,
-        "Уверенность": confidence,
-        "Цена": round(price, 4),
-        "RSI": round(float(row["rsi"]), 1),
-        "ATR %": round(atr_pct, 2),
-        "Стоп": round(stop, 4) if stop else None,
-        "Тейк": round(take, 4) if take else None,
-        "Объяснение": explanation,
-        "_df": df,
-        "_agents": agents,
+        "Цена, $": current,
+        "1ч, %": round(ch1h, 2),
+        "24ч, %": round(ch24, 2),
+        "7д, %": round(ch7d, 2),
+        "30д, %": round(ch30, 2),
+        "Объём/капитализация": round(volume_ratio, 4),
+        "Риск": risk,
+        "Причина": "; ".join(reasons[:5]) or "нет сильного преимущества",
     }
 
-fear_value, fear_label = fear_greed()
-st.metric("Fear & Greed", f"{fear_value} — {fear_label}")
+def send_telegram(rows):
+    token = st.secrets.get("TELEGRAM_BOT_TOKEN", "")
+    chat_id = st.secrets.get("TELEGRAM_CHAT_ID", "")
+    if not token or not chat_id:
+        return False, "Telegram не настроен"
 
-tab1, tab2 = st.tabs(["Сканер рынка", "Разбор монеты"])
+    if rows.empty:
+        text = "NOVA: сильных сигналов сейчас нет."
+    else:
+        lines = ["NOVA — лучшие сигналы:"]
+        for _, row in rows.head(10).iterrows():
+            lines.append(
+                f"{row['Тикер']} | {row['Сигнал']} | "
+                f"Score {row['NOVA Score']} | 24ч {row['24ч, %']:+.2f}%"
+            )
+        text = "\n".join(lines)
 
-with tab1:
-    timeframe = st.selectbox("Таймфрейм", list(TIMEFRAMES.keys()), index=1)
-    if st.button("Сканировать рынок", type="primary"):
-        rows = []
+    post_form(
+        f"https://api.telegram.org/bot{token}/sendMessage",
+        {"chat_id": chat_id, "text": text},
+    )
+    return True, "Отправлено"
+
+fear_value, fear_label = fetch_fear_greed()
+
+c1, c2, c3 = st.columns(3)
+c1.metric("Fear & Greed", f"{fear_value} — {fear_label}")
+c2.metric("Монет", COINS_COUNT)
+c3.metric("Режим", "Бесплатный")
+
+with st.sidebar:
+    st.header("Фильтры")
+    min_score = st.slider("Минимальный NOVA Score", 0, 100, 68)
+    signal_filter = st.multiselect(
+        "Сигналы",
+        ["BUY", "SELL", "WAIT"],
+        default=["BUY", "SELL"],
+    )
+    max_rank = st.slider("Макс. место по капитализации", 10, COINS_COUNT, 100)
+    min_volume_ratio = st.number_input(
+        "Мин. объём/капитализация",
+        min_value=0.0,
+        max_value=1.0,
+        value=0.01,
+        step=0.01,
+    )
+    alert_only_low_risk = st.checkbox("Уведомлять только низкий/средний риск", value=True)
+
+if "scan_df" not in st.session_state:
+    st.session_state.scan_df = None
+
+if st.button("Сканировать рынок", type="primary"):
+    try:
+        market = fetch_market()
         progress = st.progress(0)
-        for idx, symbol in enumerate(SYMBOLS, start=1):
-            try:
-                result = analyze(symbol, timeframe, fear_value)
-                rows.append({k: v for k, v in result.items() if not k.startswith("_")})
-            except Exception as exc:
-                rows.append({
-                    "Инструмент": SYMBOLS[symbol],
-                    "Тикер": symbol,
-                    "Таймфрейм": timeframe,
-                    "Сигнал": "ERROR",
-                    "NOVA Score": 0,
-                    "Уверенность": 0,
-                    "Цена": None,
-                    "RSI": None,
-                    "ATR %": None,
-                    "Стоп": None,
-                    "Тейк": None,
-                    "Объяснение": str(exc),
-                })
-            progress.progress(idx / len(SYMBOLS))
+        rows = []
 
-        result_df = pd.DataFrame(rows).sort_values("NOVA Score", ascending=False)
-        st.dataframe(result_df, use_container_width=True)
-        st.download_button(
-            "Скачать CSV",
-            result_df.to_csv(index=False).encode("utf-8"),
-            "nova_scan.csv",
-            "text/csv",
-        )
+        for index, coin in enumerate(market, start=1):
+            rows.append(evaluate(coin, fear_value))
+            progress.progress(index / len(market))
 
-with tab2:
-    symbol = st.selectbox("Монета", list(SYMBOLS.keys()), format_func=lambda x: f"{SYMBOLS[x]} ({x})")
-    timeframe2 = st.selectbox("Таймфрейм анализа", list(TIMEFRAMES.keys()), index=1, key="tf2")
+        st.session_state.scan_df = pd.DataFrame(rows)
+    except Exception as exc:
+        st.error(str(exc))
 
-    if st.button("Разобрать монету"):
+df = st.session_state.scan_df
+
+if df is not None:
+    filtered = df[
+        (df["NOVA Score"] >= min_score)
+        & (df["Сигнал"].isin(signal_filter))
+        & (df["Место"] <= max_rank)
+        & (df["Объём/капитализация"] >= min_volume_ratio)
+    ].copy()
+
+    if alert_only_low_risk:
+        filtered = filtered[filtered["Риск"].isin(["Низкий", "Средний"])]
+
+    filtered = filtered.sort_values(["NOVA Score", "24ч, %"], ascending=[False, False])
+
+    st.subheader("Лучшие возможности")
+    if filtered.empty:
+        st.info("По текущим фильтрам сильных сигналов нет.")
+    else:
+        st.dataframe(filtered, use_container_width=True, hide_index=True)
+
+    a, b, c, d = st.columns(4)
+    a.metric("BUY", int((df["Сигнал"] == "BUY").sum()))
+    b.metric("SELL", int((df["Сигнал"] == "SELL").sum()))
+    c.metric("WAIT", int((df["Сигнал"] == "WAIT").sum()))
+    d.metric("Под фильтром", len(filtered))
+
+    if st.button("Отправить лучшие сигналы в Telegram"):
         try:
-            result = analyze(symbol, timeframe2, fear_value)
-
-            c1, c2, c3, c4 = st.columns(4)
-            c1.metric("Сигнал", result["Сигнал"])
-            c2.metric("NOVA Score", result["NOVA Score"])
-            c3.metric("Уверенность", f'{result["Уверенность"]}%')
-            c4.metric("Цена", result["Цена"])
-
-            st.write(result["Объяснение"])
-
-            st.dataframe(pd.DataFrame([
-                {
-                    "Агент": name,
-                    "Решение": "BUY" if score > 0 else "SELL" if score < 0 else "WAIT",
-                    "Баллы": score,
-                }
-                for name, score in result["_agents"]
-            ]), use_container_width=True)
-
-            st.line_chart(result["_df"][["close"]].tail(300))
+            ok, message = send_telegram(filtered)
+            st.success(message) if ok else st.warning(message)
         except Exception as exc:
-            st.error(str(exc))
+            st.error(f"Telegram: {exc}")
 
-st.info("v0.3 не открывает сделки и не использует платные API.")
+    st.download_button(
+        "Скачать рейтинг CSV",
+        df.sort_values("NOVA Score", ascending=False).to_csv(index=False).encode("utf-8-sig"),
+        "nova_150_alerts.csv",
+        "text/csv",
+    )
+
+    st.subheader("Полный рейтинг")
+    st.dataframe(
+        df.sort_values("NOVA Score", ascending=False),
+        use_container_width=True,
+        hide_index=True,
+    )
+
+with st.expander("Статус Telegram"):
+    st.write({
+        "TELEGRAM_BOT_TOKEN": bool(st.secrets.get("TELEGRAM_BOT_TOKEN", "")),
+        "TELEGRAM_CHAT_ID": bool(st.secrets.get("TELEGRAM_CHAT_ID", "")),
+    })
+
+st.warning("Сигналы исследовательские. Реальные ордера не отправляются.")
