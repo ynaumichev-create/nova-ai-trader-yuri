@@ -3,15 +3,21 @@ import json
 import time
 import urllib.parse
 import urllib.request
+from datetime import datetime, timezone
 
 import pandas as pd
 import streamlit as st
 
 COINS_COUNT = 150
+START_BALANCE = 1000.0
+MAX_POSITIONS = 5
+POSITION_SHARE = 0.10
+STOP_LOSS_PCT = 0.03
+TAKE_PROFIT_PCT = 0.06
 
-st.set_page_config(page_title="NOVA Scanner v0.7", layout="wide")
-st.title("NOVA AI Trader v0.7 — Alerts")
-st.caption("Сканер 150 монет, избранное и Telegram-уведомления. Сделки не открываются.")
+st.set_page_config(page_title="NOVA AI Trader v1.0", layout="wide")
+st.title("NOVA AI Trader v1.0 — Paper Trading")
+st.caption("Сканер 150 монет + автоматические виртуальные сделки. Реальные деньги не подключены.")
 
 def get_json(url, headers=None, retries=3):
     request_headers = {
@@ -31,12 +37,6 @@ def get_json(url, headers=None, retries=3):
             last_error = exc
             time.sleep(2 ** attempt)
     raise RuntimeError(f"Источник данных недоступен: {last_error}")
-
-def post_form(url, payload):
-    data = urllib.parse.urlencode(payload).encode("utf-8")
-    request = urllib.request.Request(url, data=data, method="POST")
-    with urllib.request.urlopen(request, timeout=25) as response:
-        return response.read().decode("utf-8")
 
 @st.cache_data(ttl=300)
 def fetch_market():
@@ -138,9 +138,9 @@ def evaluate(coin, fear_value):
 
     nova_score = int(max(0, min(100, round(score))))
 
-    if nova_score >= 72 and ch24 > 0 and trend7 >= 0:
+    if nova_score >= 75 and ch24 > 0 and trend7 >= 0 and volume_ratio >= 0.01:
         signal = "BUY"
-    elif nova_score <= 28 and ch24 < 0 and trend7 <= 0:
+    elif nova_score <= 25 and ch24 < 0 and trend7 <= 0 and volume_ratio >= 0.01:
         signal = "SELL"
     else:
         signal = "WAIT"
@@ -148,138 +148,243 @@ def evaluate(coin, fear_value):
     risk = "Высокий" if range24 > 12 or market_cap < 100_000_000 else "Средний" if range24 > 6 else "Низкий"
 
     return {
-        "Место": coin.get("market_cap_rank"),
+        "id": coin.get("id"),
         "Монета": coin.get("name"),
         "Тикер": str(coin.get("symbol", "")).upper(),
+        "Место": coin.get("market_cap_rank"),
         "Сигнал": signal,
         "NOVA Score": nova_score,
-        "Цена, $": current,
-        "1ч, %": round(ch1h, 2),
+        "Цена": current,
         "24ч, %": round(ch24, 2),
         "7д, %": round(ch7d, 2),
-        "30д, %": round(ch30, 2),
         "Объём/капитализация": round(volume_ratio, 4),
         "Риск": risk,
         "Причина": "; ".join(reasons[:5]) or "нет сильного преимущества",
     }
 
-def send_telegram(rows):
-    token = st.secrets.get("TELEGRAM_BOT_TOKEN", "")
-    chat_id = st.secrets.get("TELEGRAM_CHAT_ID", "")
-    if not token or not chat_id:
-        return False, "Telegram не настроен"
+def init_state():
+    if "balance" not in st.session_state:
+        st.session_state.balance = START_BALANCE
+    if "positions" not in st.session_state:
+        st.session_state.positions = {}
+    if "trades" not in st.session_state:
+        st.session_state.trades = []
+    if "equity_history" not in st.session_state:
+        st.session_state.equity_history = []
 
-    if rows.empty:
-        text = "NOVA: сильных сигналов сейчас нет."
+def close_position(symbol, price, reason):
+    position = st.session_state.positions[symbol]
+    if position["side"] == "BUY":
+        pnl = (price - position["entry"]) * position["qty"]
     else:
-        lines = ["NOVA — лучшие сигналы:"]
-        for _, row in rows.head(10).iterrows():
-            lines.append(
-                f"{row['Тикер']} | {row['Сигнал']} | "
-                f"Score {row['NOVA Score']} | 24ч {row['24ч, %']:+.2f}%"
-            )
-        text = "\n".join(lines)
+        pnl = (position["entry"] - price) * position["qty"]
 
-    post_form(
-        f"https://api.telegram.org/bot{token}/sendMessage",
-        {"chat_id": chat_id, "text": text},
+    st.session_state.balance += position["allocated"] + pnl
+    st.session_state.trades.append({
+        "Время": datetime.now(timezone.utc).isoformat(),
+        "Тикер": symbol,
+        "Тип": "CLOSE",
+        "Сторона": position["side"],
+        "Цена": round(price, 8),
+        "Количество": position["qty"],
+        "PnL": round(pnl, 4),
+        "Причина": reason,
+        "Баланс": round(st.session_state.balance, 2),
+    })
+    del st.session_state.positions[symbol]
+
+def open_position(row):
+    if len(st.session_state.positions) >= MAX_POSITIONS:
+        return
+    symbol = row["Тикер"]
+    if symbol in st.session_state.positions:
+        return
+
+    allocation = min(
+        st.session_state.balance * POSITION_SHARE,
+        st.session_state.balance / max(1, MAX_POSITIONS - len(st.session_state.positions))
     )
-    return True, "Отправлено"
+    if allocation < 10:
+        return
 
+    price = float(row["Цена"])
+    qty = allocation / price
+    side = row["Сигнал"]
+
+    stop = price * (1 - STOP_LOSS_PCT) if side == "BUY" else price * (1 + STOP_LOSS_PCT)
+    take = price * (1 + TAKE_PROFIT_PCT) if side == "BUY" else price * (1 - TAKE_PROFIT_PCT)
+
+    st.session_state.balance -= allocation
+    st.session_state.positions[symbol] = {
+        "side": side,
+        "entry": price,
+        "qty": qty,
+        "allocated": allocation,
+        "stop": stop,
+        "take": take,
+        "score": row["NOVA Score"],
+        "name": row["Монета"],
+    }
+    st.session_state.trades.append({
+        "Время": datetime.now(timezone.utc).isoformat(),
+        "Тикер": symbol,
+        "Тип": "OPEN",
+        "Сторона": side,
+        "Цена": round(price, 8),
+        "Количество": qty,
+        "PnL": 0,
+        "Причина": f"NOVA Score {row['NOVA Score']}",
+        "Баланс": round(st.session_state.balance, 2),
+    })
+
+def update_portfolio(scan_df):
+    prices = {row["Тикер"]: float(row["Цена"]) for _, row in scan_df.iterrows()}
+
+    for symbol in list(st.session_state.positions.keys()):
+        if symbol not in prices:
+            continue
+        price = prices[symbol]
+        p = st.session_state.positions[symbol]
+
+        if p["side"] == "BUY":
+            if price <= p["stop"]:
+                close_position(symbol, price, "STOP")
+            elif price >= p["take"]:
+                close_position(symbol, price, "TAKE")
+        else:
+            if price >= p["stop"]:
+                close_position(symbol, price, "STOP")
+            elif price <= p["take"]:
+                close_position(symbol, price, "TAKE")
+
+    candidates = scan_df[
+        scan_df["Сигнал"].isin(["BUY", "SELL"])
+        & scan_df["Риск"].isin(["Низкий", "Средний"])
+    ].sort_values("NOVA Score", ascending=False)
+
+    for _, row in candidates.iterrows():
+        if len(st.session_state.positions) >= MAX_POSITIONS:
+            break
+        open_position(row)
+
+    equity = st.session_state.balance
+    for symbol, p in st.session_state.positions.items():
+        price = prices.get(symbol, p["entry"])
+        current_value = p["qty"] * price
+        if p["side"] == "BUY":
+            equity += current_value
+        else:
+            equity += p["allocated"] + (p["entry"] - price) * p["qty"]
+
+    st.session_state.equity_history.append({
+        "Время": datetime.now(timezone.utc),
+        "Капитал": round(equity, 2),
+    })
+
+def current_equity(scan_df):
+    prices = {row["Тикер"]: float(row["Цена"]) for _, row in scan_df.iterrows()}
+    equity = st.session_state.balance
+    floating = 0.0
+
+    for symbol, p in st.session_state.positions.items():
+        price = prices.get(symbol, p["entry"])
+        if p["side"] == "BUY":
+            pnl = (price - p["entry"]) * p["qty"]
+        else:
+            pnl = (p["entry"] - price) * p["qty"]
+        floating += pnl
+        equity += p["allocated"] + pnl
+
+    return equity, floating
+
+init_state()
 fear_value, fear_label = fetch_fear_greed()
 
-c1, c2, c3 = st.columns(3)
+c1, c2, c3, c4 = st.columns(4)
 c1.metric("Fear & Greed", f"{fear_value} — {fear_label}")
-c2.metric("Монет", COINS_COUNT)
-c3.metric("Режим", "Бесплатный")
+c2.metric("Стартовый капитал", f"${START_BALANCE:.2f}")
+c3.metric("Макс. позиций", MAX_POSITIONS)
+c4.metric("Риск/доходность", f"{STOP_LOSS_PCT*100:.0f}% / {TAKE_PROFIT_PCT*100:.0f}%")
 
-with st.sidebar:
-    st.header("Фильтры")
-    min_score = st.slider("Минимальный NOVA Score", 0, 100, 68)
-    signal_filter = st.multiselect(
-        "Сигналы",
-        ["BUY", "SELL", "WAIT"],
-        default=["BUY", "SELL"],
-    )
-    max_rank = st.slider("Макс. место по капитализации", 10, COINS_COUNT, 100)
-    min_volume_ratio = st.number_input(
-        "Мин. объём/капитализация",
-        min_value=0.0,
-        max_value=1.0,
-        value=0.01,
-        step=0.01,
-    )
-    alert_only_low_risk = st.checkbox("Уведомлять только низкий/средний риск", value=True)
-
-if "scan_df" not in st.session_state:
-    st.session_state.scan_df = None
-
-if st.button("Сканировать рынок", type="primary"):
+if st.button("Сканировать и обновить демо-сделки", type="primary"):
     try:
         market = fetch_market()
-        progress = st.progress(0)
-        rows = []
-
-        for index, coin in enumerate(market, start=1):
-            rows.append(evaluate(coin, fear_value))
-            progress.progress(index / len(market))
-
+        rows = [evaluate(coin, fear_value) for coin in market]
         st.session_state.scan_df = pd.DataFrame(rows)
+        update_portfolio(st.session_state.scan_df)
+        st.success("Сканирование и Paper Trading обновлены.")
     except Exception as exc:
         st.error(str(exc))
 
-df = st.session_state.scan_df
+if "scan_df" in st.session_state:
+    scan_df = st.session_state.scan_df
 
-if df is not None:
-    filtered = df[
-        (df["NOVA Score"] >= min_score)
-        & (df["Сигнал"].isin(signal_filter))
-        & (df["Место"] <= max_rank)
-        & (df["Объём/капитализация"] >= min_volume_ratio)
-    ].copy()
-
-    if alert_only_low_risk:
-        filtered = filtered[filtered["Риск"].isin(["Низкий", "Средний"])]
-
-    filtered = filtered.sort_values(["NOVA Score", "24ч, %"], ascending=[False, False])
-
-    st.subheader("Лучшие возможности")
-    if filtered.empty:
-        st.info("По текущим фильтрам сильных сигналов нет.")
-    else:
-        st.dataframe(filtered, use_container_width=True, hide_index=True)
+    equity, floating = current_equity(scan_df)
+    realized = sum(t["PnL"] for t in st.session_state.trades if t["Тип"] == "CLOSE")
 
     a, b, c, d = st.columns(4)
-    a.metric("BUY", int((df["Сигнал"] == "BUY").sum()))
-    b.metric("SELL", int((df["Сигнал"] == "SELL").sum()))
-    c.metric("WAIT", int((df["Сигнал"] == "WAIT").sum()))
-    d.metric("Под фильтром", len(filtered))
+    a.metric("Свободный баланс", f"${st.session_state.balance:.2f}")
+    b.metric("Капитал", f"${equity:.2f}")
+    c.metric("Плавающий PnL", f"${floating:.2f}")
+    d.metric("Реализованный PnL", f"${realized:.2f}")
 
-    if st.button("Отправить лучшие сигналы в Telegram"):
-        try:
-            ok, message = send_telegram(filtered)
-            st.success(message) if ok else st.warning(message)
-        except Exception as exc:
-            st.error(f"Telegram: {exc}")
+    st.subheader("Открытые виртуальные позиции")
+    if st.session_state.positions:
+        positions = []
+        prices = {row["Тикер"]: float(row["Цена"]) for _, row in scan_df.iterrows()}
+        for symbol, p in st.session_state.positions.items():
+            current = prices.get(symbol, p["entry"])
+            pnl = (current - p["entry"]) * p["qty"] if p["side"] == "BUY" else (p["entry"] - current) * p["qty"]
+            positions.append({
+                "Монета": p["name"],
+                "Тикер": symbol,
+                "Сторона": p["side"],
+                "Вход": round(p["entry"], 8),
+                "Текущая": round(current, 8),
+                "Стоп": round(p["stop"], 8),
+                "Тейк": round(p["take"], 8),
+                "NOVA Score": p["score"],
+                "PnL": round(pnl, 4),
+            })
+        st.dataframe(pd.DataFrame(positions), use_container_width=True, hide_index=True)
+    else:
+        st.info("Открытых позиций нет.")
 
-    st.download_button(
-        "Скачать рейтинг CSV",
-        df.sort_values("NOVA Score", ascending=False).to_csv(index=False).encode("utf-8-sig"),
-        "nova_150_alerts.csv",
-        "text/csv",
-    )
+    st.subheader("Лучшие сигналы")
+    signals = scan_df[scan_df["Сигнал"].isin(["BUY", "SELL"])].sort_values("NOVA Score", ascending=False)
+    st.dataframe(signals.head(20), use_container_width=True, hide_index=True)
 
-    st.subheader("Полный рейтинг")
-    st.dataframe(
-        df.sort_values("NOVA Score", ascending=False),
-        use_container_width=True,
-        hide_index=True,
-    )
+    st.subheader("История сделок")
+    if st.session_state.trades:
+        trades_df = pd.DataFrame(st.session_state.trades)
+        st.dataframe(trades_df, use_container_width=True, hide_index=True)
+        st.download_button(
+            "Скачать сделки CSV",
+            trades_df.to_csv(index=False).encode("utf-8-sig"),
+            "nova_paper_trades.csv",
+            "text/csv",
+        )
 
-with st.expander("Статус Telegram"):
-    st.write({
-        "TELEGRAM_BOT_TOKEN": bool(st.secrets.get("TELEGRAM_BOT_TOKEN", "")),
-        "TELEGRAM_CHAT_ID": bool(st.secrets.get("TELEGRAM_CHAT_ID", "")),
-    })
+    if st.session_state.equity_history:
+        st.subheader("Кривая капитала")
+        equity_df = pd.DataFrame(st.session_state.equity_history).set_index("Время")
+        st.line_chart(equity_df)
 
-st.warning("Сигналы исследовательские. Реальные ордера не отправляются.")
+    with st.expander("Полный рейтинг 150 монет"):
+        st.dataframe(
+            scan_df.sort_values("NOVA Score", ascending=False),
+            use_container_width=True,
+            hide_index=True,
+        )
+
+if st.button("Сбросить демо-портфель"):
+    st.session_state.balance = START_BALANCE
+    st.session_state.positions = {}
+    st.session_state.trades = []
+    st.session_state.equity_history = []
+    st.success("Демо-портфель сброшен.")
+
+st.warning(
+    "Важно: Streamlit Community Cloud не выполняет код 24/7 без внешнего планировщика. "
+    "Эта версия обновляет сделки при нажатии кнопки. Следующий этап — подключение постоянного сервера."
+)
