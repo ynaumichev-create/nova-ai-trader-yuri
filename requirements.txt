@@ -1,2 +1,4 @@
-streamlit==1.47.1
-pandas==2.3.1
+{
+  "balance": 1000.0,
+  "positions": {}
+}
