@@ -1,364 +1,412 @@
-у
-    1Ppj’;  г                   у`  • S SK r S SKrS SKrS SKrS SKJrJr  S SK rS SK	r
-Sr
-SrSr
-SrS rSr\
-R"                  " S	S
-S
-9  \
-R$                  " S5        \
-R&                  " S
-5        SbS jr\
-R*                  " SS9S 5       r\
-R*                  " SS9S 5       rScS jrS rS rS rS rS rS rS r\" 5         \" 5       u  r r!\
-RD                  " S5      u  r#r$r%r&\#RO                  S\  S\! 35        \$RO                  S S!\S" 35        \%RO                  S#\
-5        \&RO                  S$\S%-  S& S'\S%-  S& S(35        \
-RP                  " S)S*S+9(       aq   \" 5       r)\) V s/ s H  n \" U \ 5      PM  
-   sn r*\RV                  " \*5      \
-RX                  l-        \" \
-RX                  RZ                  5        \
-R\                  " S,5        S-\
-RX                  ;   Ga  \
-RX                  RZ                  r-\" \-5      u  r3r4\5" S. \
-RX                  Rl                   5       5      r7\
-RD                  " S5      u  r8r9r:r;\8RO                  S/S!\
-RX                  Rx                  S" 35        \9RO                  S0S!\3S" 35        \:RO                  S1S!\4S" 35        \;RO                  S2S!\7S" 35        \
-Rz                  " S35        \
-RX                  R|                  (       Ga  / r>\-R                  5        VVs0 s H  u  pUS4   \@" US5   5      _M  
-   snnrA\
-RX                  R|                  R…                  5        Hђ  u  rCrD\AR‹                  \C\DS6   5      rF\DS7   S8:X  a  \F\DS6   -
-  \DS9   -  O
-\DS6   \F-
-  \DS9   -  rG\>R‘                  \DS:   \C\DS7   \I" \DS6   S;5      \I" \FS;5      \I" \DS<   S;5      \I" \DS=   S;5      \DS>   \I" \GS5      S?.	5        M’  
-   \
-R”                  " \RV                  " \>5      S@S@SA9  O\
-R–                  " SB5        \
-Rz                  " SC5        \-\-SD   R™                  S8SE/5         R›                  SFSGSH9rN\
-R”                  " \NRџ                  SI5      S@S@SA9  \
-Rz                  " SJ5        \
-RX                  Rl                  (       GaП  \RV                  " \
-RX                  Rl                  5      rP\
-R”                  " \PS@S@SA9  \P\PSK   SL:H     rQ\QR¤                  (       GdI  \Q\QSM   S :„     rS\Q\QSM   S :     rT\U" \S5      \U" \Q5      -
-  S%-  rV\SSM   Rk                  5       rW\X" \TSM   Rk                  5       5      rY\YS :”  a  \W\Y-
-  O \@" SN5      rZ\SR¤                  (       d  \SSM   R·                  5       OSr\\TR¤                  (       d  \TSM   R·                  5       OSr]\
-RD                  " SO5      u  r^r_r`rarb\^RO                  SP\U" \Q5      5        \_RO                  SQ\VSR S(35        \`RO                  SS\Z\@" SN5      :X  a  STO\ZS" 5        \aRO                  SUS!\\S" 35        \bRO                  SVS!\]S" 35        \
-RЖ                  " SW\PRЙ                  SGSX9RЛ                  SY5      SZS[5        \
-RX                  RМ                  (       aY  \
-Rz                  " S\5        \RV                  " \
-RX                  RМ                  5      RП                  S]5      rh\
-RТ                  " \h5        \
-RФ                  " S^5         \
-R”                  " \-R›                  SFSGSH9S@S@SA9  SSS5        \
-RP                  " S_5      (       aV  \\
-RX                  l<        0 \
-RX                  l>        / \
-RX                  l6        / \
-RX                  lf        \
-R\                  " S`5        \
-RЦ                  " Sa5        gs  sn f ! \/  a#  r0\
-Rb                  " \2" \05      5         Sr0C0GNЦSr0C0ff = fs  snnf ! , (       d  f       NЕ= f)dй    N)ЪdatetimeЪtimezoneй–   g     @Џ@й
-   зљ™™™™™©?gё…лQёћ?gё…лQё®?zNOVA AI Trader v1.0Ъwide)Ъ
-page_titleЪlayoutu%   NOVA AI Trader v1.0.1 вЂ” Stable Testu   РЎРєР°РЅРµСЂ 150 РјРѕРЅРµС‚ + Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРёРµ РІРёСЂС‚СѓР°Р»СЊРЅС‹Рµ СЃРґРµР»РєРё. Р РµР°Р»СЊРЅС‹Рµ РґРµРЅСЊРіРё РЅРµ РїРѕРґРєР»СЋС‡РµРЅС‹.c                  уь  • SSS.nU(       a  UR                  U5        S n[        U5       H|  n [        R                  R	                  XS9n[        R                  R
-                  USS9 n [        R                  " U R                  5       R                  S 5      5      sS S S 5        s  $ 
-   [        S	U 35      e! , (       d  f       Mќ  = f! [          a&  nUn[        R                  " SU-  5         S nAMЛ  S nAff = f)
-NzMozilla/5.0 NOVA-AI-Traderzapplication/json)z
-User-AgentЪAccept©Ъ headersй#   )Ъ timeoutzutf-8й   u4   РСЃС‚РѕС‡РЅРёРє РґР°РЅРЅС‹С… РЅРµРґРѕСЃС‚СѓРїРµРЅ: )ЪupdateЪrangeЪurllibЪ requestЪ RequestЪ urlopenЪjsonЪloadsЪreadЪdecodeЪ	ExceptionЪtimeЪsleepЪRuntimeError)	Ъurlr   Ъ retriesЪrequest_headersЪ
-last_errorЪ attemptr   ЪresponseЪexcs	            Ъ2/mnt/data/NOVA_AI_Trader_v1_0_1_Stable_Test/app.pyЪget_jsonr(      sФ   Ђ а2Ш$сЂOц ШЧСwФ'аЂJЬ–>€ р	%Ь—n‘nЧ,С,ЁSР,РJ€GЬ—‘Ч'С'Ё ёР'С<АЬ—z’z (§-Ў-Ј/Ч"8С"8ёУ"AУBч =У<с  "ф 
-РMИjИ\РZУ
-[Р[ч
- =Ц<ыду 	%Ш€JЬЏJЉJђqG‘|Ч$Т$ыр	%ъs5   Ї;C
-Б*3B9В	C
-В9
-C	ГC
-ГC
-Г
 
-C;ГC6Г6C;i,  )Ъttlc            	      у  • [         R                  R                  SS[        SSSS.5      n [        R
-                  R
-                  S S5      nU(       a  S	U0O0 nS
-U  3n[        X2S
-9n[        U[        5      (       d
-  [        S5      eU$ )
-NЪusdЪmarket_cap_descй   Ъtruez
-1h,24h,7d,30d)Ъ
-vs_currencyЪorderЪper_pageЪpageЪ	sparklineЪprice_change_percentageЪCOINGECKO_API_KEYЪ zx-cg-demo-api-keyz/https://api.coingecko.com/api/v3/coins/markets?r
-   u8   CoinGecko РІРµСЂРЅСѓР» РЅРµРѕР¶РёРґР°РЅРЅС‹Р№ РѕС‚РІРµС‚)
-r   ЪparseЪ	urlencodeЪ
-COINS_COUNTЪstЪ secretsЪgetr(   Ъ
-isinstanceЪlistr   )ЪparamsЪkeyr   r    Ъdatas        r'   Ъfetch_marketrB   )   s‡   Ђ д
-Џ\‰\Ч
-#С
-#ШШ"ЬШШШ#2с
- %у   ЂFф 
+import json
+import time
+import urllib.parse
+import urllib.request
+from datetime import datetime, timezone
 
-Џ*‰*Џ.‰.Р,ЁbУ
-1ЂCЮ,/Р" CС(°RЂGШ;ёFё8Р
-DЂCд
-ђCС
-)ЂDЬ
-ђdњDЧ
-!С
-!ЬРUУVРVШ
-ЂKу    i   c                  уl   •  [        S5      S   S   n [        U S   5      U S   4$ ! [          a     gf = f) Nz'https://api.alternative.me/fng/?limit=1rA   r   ЪvalueЪvalue_classification)й2   Ъ Neutral)r(   Ъintr   )Ъitems    r'   Ъfetch_fear_greedrK   =   sH   Ђ рЬРAУBА6СJИ1СM€Ьђ4 ‘=У! 4Р(>С#?Р?Р?шЬ
-у Щръs   ‚#& ¦
-3І3з        c                 у"   • U b
-  [        U 5      $ U$ )N)Ъfloat)rE   Ъ defaults     r'   ЪsaferP   E   s   Ђ Ш С,Њ5ђ‹<Р9°'Р9rC   c                 у@  • U (       a  [        U 5      S:  a  g[        R                  " U SS9nUR                   S5      R	                  5       n[        U5      S:ј  a  UR                   S5      R	                  5       OUR	                  5       nX#S-  :”  a  S $ X#S-  :  a  S	$ S$ )
-Nй   r   Ъ float64)ЪdtypeйH   g)\ЏВх(р?r-   g®Gбz®п?йяяяя)ЪlenЪpdЪSeriesЪtailЪmean)ЪpricesЪseriesЪshortЪlongs       r'   Ъ
-trend_scorer`   H   s„   Ђ Ю
-”S“[ 2У%ШЬ
-ЏYЉYђv YС
-/ЂFШЏK‰K‹OЧ С У"ЂEЬ%(ЁЈ[°BУ%6€6Џ;‰;ђr‹?Ч
-С
-Ф
-!ёFїK№K»MЂDШt™
-У#€1РIЁuёd±{У/BЁРIИРIrC   c                 уT   • [        U R                  S5      5      n[        U R                  S5      5      n[        U R                  S5      5      n[        U R                  S5      5      n[        U R                  S5      5      n[        U R                  S5      5      n US :”  a  Xv-
-  OS n[        U R                  S5      5      n	[        U R                  S	5      5      n
-[        U R                  S
-5      5      n
-U	S :”  a
-  X«-
-  U	-
-  S
--  OS nU R                  S5      =(       d    0 R                  S
-5      =(       d    / n
-[        U
-5      nSn/ nUSS4USS4USS4USS44 HL  u  nnnU[         S[	        SUU-  5      5      -
-  n[
-        U5      S:ј  d  M4  UR
-                  U SUS S35        MN  
-   US:ј  a  US-
-  nUR
-                  S5        O9US :ј  a  US!-
-  nUR
-                  S"5        OUS#:  a  US$-  nUR
-                  S%5        XюS-  -
-  nUS :”  a  UR
-                  S&5        OUS :  a  UR
-                  S'5        US(:”  a  US)-  nUR
-                  S*5        OUS$:”  a  US+-  nUR
-                  S,5        US-:ј  a
-  XуS :”  a  S.OS/-
-  nOUS0::  a  XуS :  a  S.OS-  n[        [         S [	        S
-[        U5      5      5      5      nUS1:ј  a  US :”  a  US :ј  a	  US#:ј  a  S2nOUS3::  a  US :  a  US ::  a	  US#:ј  a  S4nOS5nUS:”  d  US6:  a  S7O	US8:”  a  S9OS:nU R                  S;5      U R                  S<5      [        U R                  S=S>5      5      R                  5       U R                  S?5      UUU	[        US5      [        US5      [        US!5      US@R                  US SA 5      =(       d    SBSC.$ )DNЪ&price_change_percentage_1h_in_currencyЪ'price_change_percentage_24h_in_currencyЪ&price_change_percentage_7d_in_currencyЪ'price_change_percentage_30d_in_currencyЪ
-market_capЪtotal_volumer   Ъ
-current_priceЪhigh_24hЪ low_24hйd   Ъsparkline_in_7dЪpricerG   g      р?u   1С‡g      ш?u   24С‡gffffffж?u   7Рґg      Р?u   30Рґiфяяяй   r   z: z+.1fЪ%g333333Г?й   u%   РІС‹СЃРѕРєР°СЏ Р»РёРєРІРёРґРЅРѕСЃС‚СЊr    й   u+   РЅРѕСЂРјР°Р»СЊРЅР°СЏ Р»РёРєРІРёРґРЅРѕСЃС‚СЊg{®Gбz„?r   u#   РЅРёР·РєР°СЏ Р»РёРєРІРёРґРЅРѕСЃС‚СЊu&   7-РґРЅРµРІРЅС‹Р№ С‚СЂРµРЅРґ РІРІРµСЂС…u$   7-РґРЅРµРІРЅС‹Р№ С‚СЂРµРЅРґ РІРЅРёР·й   й   u5   СЌРєСЃС‚СЂРµРјР°Р»СЊРЅР°СЏ РІРѕР»Р°С‚РёР»СЊРЅРѕСЃС‚СЊй    u)   РІС‹СЃРѕРєР°СЏ РІРѕР»Р°С‚РёР»СЊРЅРѕСЃС‚СЊйF   й   йэяяяй   йK   ЪBUYй   ЪSELLЪWAITi бхu   Р’С‹СЃРѕРєРёР№й   х   РЎСЂРµРґРЅРёР№х   РќРёР·РєРёР№ЪidЪnameЪsymbolr6   Ъmarket_cap_rankz; й   u0   РЅРµС‚ СЃРёР»СЊРЅРѕРіРѕ РїСЂРµРёРјСѓС‰РµСЃС‚РІР°)rЃ   х   РњРѕРЅРµС‚Р°х
-   РўРёРєРµСЂu
-   РњРµСЃС‚Рѕх   РЎРёРіРЅР°Р»ъ
-NOVA Scoreх   Р¦РµРЅР°u    24С‡, %u   7Рґ, %u%   РћР±СЉС‘Рј/РєР°РїРёС‚Р°Р»РёР·Р°С†РёСЏх   Р РёСЃРєх   РџСЂРёС‡РёРЅР°)rP   r<   r`   ЪmaxЪminЪabsЪappendrI   ЪroundЪstrЪupperЪjoin)ЪcoinЪ
-fear_valueЪch1hЪch24Ъch7dЪch30rf   ЪvolumeЪvolume_ratioЪ currentЪhigh24Ъlow24Ъ range24r3   Ъtrend7ЪscoreЪ reasonsrE   ЪweightЪlabelЪ
-nova_scoreЪsignalЪrisks                          r'   Ъevaluater©   P   s   Ђ Ь
-ђ—‘РAУBУ
-CЂDЬ
-ђ—‘РBУCУ
-DЂDЬ
-ђ—‘РAУBУ
-CЂDЬ
-ђ—‘РBУCУ
-DЂDдђd—h‘h|У,У-ЂJЬ
-ђ$—(‘(>У*У
-+ЂFШ*4°q«.ђ6Т&ёaЂLдђ4—8‘8OУ,У-ЂGЬ
-ђ$—(‘(:У&У
-'ЂFЬђ—‘)У$У%ЂEШ29ёAі+€v‰~ С(Ё3Т.А1ЂGа—‘Р+У,Ч2°Ч7С7ё У@ЧFАBЂIЬ
-У
-#ЂFаЂEШЂGр 
-€sђEРШ	
-€sђFРШ	
-€sђEРШ	
-€tђVРу	!С€€vђuр 	”ђSњ#b %Ё&Ў.У1У2С2€Ь
-€u‹:Ќ?ШЏN‰NeW B uЁT l°!Р4Ц5с!р ђtУ Ш
-ђ‰
-€ШЏ‰Р>Х?Ш	У	Ш
-ђ‰
-€ШЏ‰РDХEШ	У	Ш
-ђ‰
-€ШЏ‰Р<Ф=а	ђa‰ZСЂEШ 
-ђѓzШЏ‰Р?Х@Ш	ђ!‹ШЏ‰Р=Ф>а ђѓ|Ш
-ђ‰
-€ШЏ‰РNХOШ	ђ2‹Ш
-ђ‰
-€ШЏ‰РBФCа ђRУ Ш
-Q“h‘ BС&‰Ш	ђrУ	Ш
-Q“h‘ AС%€д”SњC ¤UЁ5Ј\У2У3У4ЂJа ђRУ D 1›HЁ°1«ёИУ9MШ‰Ш	ђrУ	d Q›hЁ6°Q«;ё<И4У;OШ‰а€а&Ё›|ЁzёKУ/GС
-РahРklУalСM]р  sAЂDр Џh‰hђt‹nШџ™ У(Ь$џ(™( 8ЁRУ0У1Ч7С7У9Ш—h‘hР0У1ШШ ШЬq“>Ьa“.Ь16°|АQУ1GШШџ)™) GЁBЁQ KУ0ЧfР4fс
-р 
-rC   c                  уV  • S[         R                  ;  a  [        [         R                  l        S[         R                  ;  a  0 [         R                  l        S[         R                  ;  a  / [         R                  l        S[         R                  ;  a  / [         R                  l        g g )NЪ balanceЪ	positionsЪtradesЪequity_history) r:   Ъ
-session_stateЪ
-START_BALANCEr«   r¬   r­   r®   © rC   r'   Ъ
-init_staterІ   Ґ   sw   Ђ Ш њЧ(С(У (Ь#0ЊЧСФ Ш њ"Ч*С*У *Ш%'ЊЧСФ"Ш ”rЧ'С'У 'Ш"$ЊЧСФШ њrЧ/С/У /Ш*,ЊЧСХ'р 0rC   c                 уN  • [         R                  R                  U    nUS   S:X  a  XS   -
-  US   -  nOUS   U-
-  US   -  n[         R                  =R                  US   U-   -
-  sl        [         R                  R                  R
-                  [        R                  " [        R                  5      R                  5       U SUS   [        US 5      US   [        US5      U[        [         R                  R                  S	5      S
-.	5        [         R                  R                  U 	 g )
-NЪsiderz   ЪentryЪqtyЪ	allocatedЪCLOSErp   rq   r   ©	х
-   Р’СЂРµРјСЏr‡   х   РўРёРїх   РЎС‚РѕСЂРѕРЅР°rЉ   u   РљРѕР»РёС‡РµСЃС‚РІРѕЪPnLrЊ   u   Р‘Р°Р»Р°РЅСЃ)r:   rЇ   r¬   r«   r­   rђ   r   Ъnowr   ЪutcЪ	isoformatr‘   )rѓ   rm   ЪreasonЪpositionЪpnls        r'   Ъclose_positionrД   Ї   s  Ђ ЬЧСЧ)С)Ё&С1ЂHШ ђС 5У  Ш  С(С(ЁH°U©OС;‰а С  5С(ЁH°U©OС;€дЧСЧТ ЁС 5ёС ;С;ХЬЧСЧСЧ"С"Ь—l’l¤8§<Ў<У0Ч:С:У<ШШШ" 6С*Ь% “OШ (ЁЎЬђS!‹}Ш ЬњbЧ.С.Ч6С6ёУ:с
-$ф 
- ф 	
-ЧСЧ"С" 6С*rC   c                 у  • [        [        R                  R                  5      [        :ј  a  g U S   nU[        R                  R                  ;   a  g [
-        [        R                  R                  [        -  [        R                  R                  [        S[        [        [        R                  R                  5      -
-  5      -
-  5      nUS:  a  g [        U S   5      nX#-
-  nU S   nUS:X  a  US[        -
-  -  O
-US[        -   -  nUS:X  a  US[        -   -  O
-US[        -
-  -  n [        R                  =R                  U-  sl        UUUUUU U S    U S   S	.[        R                  R                  U'   [        R                  R                  R                  [        R                  " [         R"                  5      R%                  5       US
-U['        US
-5      USS
-U S     3['        [        R                  R                  S5      S.	5        g )Nr‡   r-   r   rЉ   r€   rz   r‰   r†   )rґ   rµ   r¶   r·   ЪstopЪtakerў   r‚   ЪOPENrp   r   z
-NOVA Score r   r№   )rW   r:   rЇ   r¬   Ъ
-MAX_POSITIONSrЋ   r«   ЪPOSITION_SHARErЌ   rN   Ъ
-STOP_LOSS_PCTЪTAKE_PROFIT_PCTr­   rђ   r   rѕ   r   rї   rА   r‘   )Ъrowrѓ   Ъ
-allocationrm   r¶   rґ   rЖ   rЗ   s           r'   Ъ
-open_positionrП   Д   sЕ  Ђ Ь 
-Њ2Ч
-С
-Ч
-%С
-%У &¬-У 7ШШ
-ђС
-ЂFШ 
-”Ч!С!Ч+С+У +ШдЬ
-ЧСЧ С ¤>С1Ь
-ЧСЧ С ¤3 q¬-ј#јbЧ>NС>NЧ>XС>XУ:YС*YУ#ZСZуЂJр ђBѓШдђ#ђj‘/У"ЂEШ
-С
-ЂCШ
-€~С
-ЂDа*.°%«-€5ђAњ
-С%Т
-&ёUАaМ-СFWС=XЂDШ,0°E«M€5ђAњС'Т
-(ёuИМOСH[С?\ЂDдЧСЧТ 
-С*ХаШШШШШШђ\С"ШђNС#с	*„BЧСЧСvС&ф  ЧСЧСЧ"С"Ь—l’l¤8§<Ў<У0Ч:С:У<ШШШЬ% “OШ #ШШ'ЁЁLС(9Р':Р;ЬњbЧ.С.Ч6С6ёУ:с
-$х 
- rC   c           	      уд  • U R                  5        VVs0 s H  u  pUS   [        US   5      _M  
-   nnn[        [        R                  R
-                  R
-                  5       5       HЋ  nXC;  a  M
-  X4   n[        R                  R
-                  U   nUS   S:X  a.  XVS   ::  a  [        XES5        MJ  XVS    :ј  a  [        XES5        M`  Mb  XVS   :ј  a  [        XES5        Mx  XVS    ::  d  M‚  [        XES5        Mђ  
-   U U S	   R                  SS
-/5      U S
-   R                  SS
-/5      -     R                  SSS9n U R                  5        H=  u  p[        [        R                  R
-                  5      [        :ј  a    O[        U5        M?  
-   [        R                  R                  n[        R                  R
-                  R                  5        HF  u  pFUR                  XFS   5      nUS   U-  n	US   S:X  a  X‰-
-  nM0  X†S   US   U-
-  US   -  -   -
-  nMH  
-   [        R                  R                   R#                  [$        R&                  " [(        R*                  5      [-        US5      S.5        g s  snnf )Nr‡   rЉ   rґ   rz   rЖ   ЪSTOPrЗ   ЪTAKEr€   r|   r‹   rЂ   r   r‰   F©Ъ	ascendingrµ   r¶   r·   r   )rє   х   РљР°РїРёС‚Р°Р»)ЪiterrowsrN   r>   r:   rЇ   r¬   ЪkeysrД   ЪisinЪ
-sort_valuesrW   rЙ   rП   r«   Ъitemsr<   r®   rђ   r   rѕ   r   rї   r‘   )
-Ъ scan_dfЪ_rН   r\   rѓ   rm   ЪpЪ
-candidatesЪequityЪ
-current_values
-             r'   Ъupdate_portfoliorб   р   s@  Ђ ШFMЧFVСFVФFXФ
-YТFX№FёA€cђ,С¤ sЁ:ЎУ!7Т7СFXЂFС
-Yд”rЧ'С'Ч1С1Ч6С6У8Ц9€Ш
-У
-ЩШ‘€ЬЧСЧ&С& vС.€а
-€V‰9У
-Ш&™	У!ЬvЁfЦ5ШF™)У#ЬvЁfЦ5с $р &™	У!ЬvЁfЦ5ШF™)Х#ЬvЁfЦ5с :р" ШђСЧ$С$ eЁV _У5Ш
-ђ*С
-Ч
-"С
-" NР4DР#EУ
-Fс	Gсч  Ѓkђ,Ё%ЂkР0р  р
- Ч%С%Ц'‰€Ь
-ЊrЧСЧ)С)У
-*¬mУ
-;ЩЬђcЦс  (ф
- Ч
-С
-Ч
-%С
-%ЂFЬЧ%С%Ч/С/Ч5С5Ц7‰	€Ш—
-‘
-6 WЎ:У.€Ш%™ 5С(€
-Ш
-€V‰9У
-ШС#ЉFа
-‘nЁЁ'©
-°UС(:ёaА№hС'FСFСFЉFс
- 8ф  ЧСЧ#С#Ч*С*Ь—l’l¤8§<Ў<У0Ь ЁУ*с,х  щуM Zs   ”I,c           	      у¤  • U R                  5        VVs0 s H  u  pUS   [        US   5      _M  
-   nnn[        R                  R                  nSn[        R                  R
-                  R
-                  5        HL  u  pgUR                  XgS   5      nU S   S:X  a  X‡S   -
-  U S    -  n	OU S   U-
-  U S    -  n	XY-
-  nXGS   U	-   -
-  nMN  
-   XE4$ s  snnf )	Nr‡   rЉ   rL   rµ   rґ   rz   r¶   r·   )rЦ   rN   r:   rЇ   r«   r¬   rЪ   r<   )
-rЫ   rЬ   rН   r\   rЯ   Ъfloatingrѓ   rЭ   rm   rГ   s
-             r'   Ъcurrent_equityrд     sа   Ђ ШFMЧFVСFVФFXФ
-YТFX№FёA€cђ,С¤ sЁ:ЎУ!7Т7СFXЂFС
-YЬ
-Ч
-С
-Ч
-%С
-%ЂFШЂHдЧ%С%Ч/С/Ч5С5Ц7‰	€Ш—
-‘
-6 WЎ:У.€Ш
-€V‰9У
-ШW™:С%ЁЁ5©С1‰CађW‘: С%ЁЁ5©С1€CШ‰€ШђK‘. 3С&С&Љс 8р Р
-Рщу Zs   ”Crq   zFear & Greedu    вЂ” u!   РЎС‚Р°СЂС‚РѕРІС‹Р№ РєР°РїРёС‚Р°Р»Ъ$z.2fu   РњР°РєСЃ. РїРѕР·РёС†РёР№u   Р РёСЃРє/РґРѕС…РѕРґРЅРѕСЃС‚СЊrk   z.0fz% / ro   u@   РЎРєР°РЅРёСЂРѕРІР°С‚СЊ Рё РѕР±РЅРѕРІРёС‚СЊ РґРµРјРѕ-СЃРґРµР»РєРёЪ primary)Ъtypeu=   РЎРєР°РЅРёСЂРѕРІР°РЅРёРµ Рё Paper Trading РѕР±РЅРѕРІР»РµРЅС‹.rЫ   c              #   у@   #   • U  H  oS    S:X  d  M
-  US   v •  M  
-   g7f)r»   rё   rЅ   Nr±   )Ъ.0Ъts     r'   Ъ	<genexpr>rл   C  s!   й Ђ РWТ%< А(Б
-ИwС@V“8ђ1ђU–8Т%<щs   ‚’u   РЎРІРѕР±РѕРґРЅС‹Р№ Р±Р°Р»Р°РЅСЃrХ   u   РџР»Р°РІР°СЋС‰РёР№ PnLu   Р РµР°Р»РёР·РѕРІР°РЅРЅС‹Р№ PnLu6   РћС‚РєСЂС‹С‚С‹Рµ РІРёСЂС‚СѓР°Р»СЊРЅС‹Рµ РїРѕР·РёС†РёРёr‡   rЉ   rµ   rґ   rz   r¶   r‚   rp   rЖ   rЗ   rў   )	r†   r‡   rј   u   Р’С…РѕРґu   РўРµРєСѓС‰Р°СЏu   РЎС‚РѕРїu   РўРµР№Рєr‰   rЅ   T)Ъuse_container_widthЪ
-hide_indexu'   РћС‚РєСЂС‹С‚С‹С… РїРѕР·РёС†РёР№ РЅРµС‚.u   Р›СѓС‡С€РёРµ СЃРёРіРЅР°Р»С‹r€   r|   r‰   FrУ   rr   u   РСЃС‚РѕСЂРёСЏ СЃРґРµР»РѕРєr»   rё   rЅ   Ъinfr…   u   Р—Р°РєСЂС‹С‚Рѕ СЃРґРµР»РѕРєzWin ratez.1fz
-Profit Factoru   в€ћu   РЎСЂРµРґРЅСЏСЏ РїСЂРёР±С‹Р»СЊu   РЎСЂРµРґРЅРёР№ СѓР±С‹С‚РѕРєu   РЎРєР°С‡Р°С‚СЊ СЃРґРµР»РєРё CSV)Ъindexz	utf-8-sigznova_paper_trades.csvztext/csvu   РљСЂРёРІР°СЏ РєР°РїРёС‚Р°Р»Р°rє   u*   РџРѕР»РЅС‹Р№ СЂРµР№С‚РёРЅРі 150 РјРѕРЅРµС‚u*   РЎР±СЂРѕСЃРёС‚СЊ РґРµРјРѕ-РїРѕСЂС‚С„РµР»СЊu)   Р”РµРјРѕ-РїРѕСЂС‚С„РµР»СЊ СЃР±СЂРѕС€РµРЅ.u1  Р’Р°Р¶РЅРѕ: Streamlit Community Cloud РЅРµ РІС‹РїРѕР»РЅСЏРµС‚ РєРѕРґ 24/7 Р±РµР· РІРЅРµС€РЅРµРіРѕ РїР»Р°РЅРёСЂРѕРІС‰РёРєР°. Р­С‚Р° РІРµСЂСЃРёСЏ РѕР±РЅРѕРІР»СЏРµС‚ СЃРґРµР»РєРё РїСЂРё РЅР°Р¶Р°С‚РёРё РєРЅРѕРїРєРё. РЎР»РµРґСѓСЋС‰РёР№ СЌС‚Р°Рї вЂ” РїРѕРґРєР»СЋС‡РµРЅРёРµ РїРѕСЃС‚РѕСЏРЅРЅРѕРіРѕ СЃРµСЂРІРµСЂР°.)Nrv   )rL   )lr   r   Ъurllib.parser   Ъurllib.requestr   r   ЪpandasrX   Ъ	streamlitr:   r9   r°   rЙ   rК   rЛ   rМ   Ъset_page_configЪtitleЪ captionr(   Ъ
-cache_datarB   rK   rP   r`   r©   rІ   rД   rП   rб   rд   r–   Ъ
-fear_labelЪ columnsЪc1Ъc2Ъc3Ъc4ЪmetricЪbuttonЪmarketЪrowsЪ	DataFramerЇ   rЫ   Ъ successr   r&   Ъerrorr’   rЯ   rг   Ъsumr­   ЪrealizedЪaЪbЪcЪdr«   Ъ	subheaderr¬   rЦ   rN   r\   rЪ   rѓ   rЭ   r<   rќ   rГ   rђ   r‘   Ъ	dataframeЪinforШ   rЩ   Ъ signalsЪheadЪ	trades_dfЪclosedЪemptyЪwinsЪlossesrW   Ъwin_rateЪgross_profitrЏ   Ъ
-gross_lossЪ
-profit_factorr[   Ъ avg_winЪavg_lossЪs1Ъs2Ъs3Ъs4Ъs5Ъdownload_buttonЪto_csvЪencoder®   Ъ	set_indexЪ	equity_dfЪ
-line_chartЪexpanderЪ warning)r•   rЬ   rН   s   000r'   Ъ<module>r(     sf   рг 
-Ы 
-Ы Ы Я 'г Ы аЂ
-ШЂ
-ШЂ
-ШЂШЂ
-ШЂа Ч Т Р3ёFТ CШ ‡‚Р	0Ф 1Ш ‡
-‚
-р  fф  gф\р& ‡‚ђ3Ссу рр& ‡‚ђ4Ссу рф:тJтSтj-т+т** тX* тXс  
-„Щ)У+С Ђ
-€Jа—’A“ЃЂЂB€€BШ ‡	Ѓ	€.ZLЁЁjЁ\Р:Ф ;Ш ‡	Ѓ	Р
--°°=АР2EР/FФ GШ ‡	Ѓ	Р
-$ mФ 4Ш ‡	Ѓ	Р
-)ЁmёCС.?АР-DАDИРY\СI\Р]`РHaРabР+cФ dа‡9‚9Р
-OРV_Ч`р Щ“€Щ7=У>ІvЁt‘zЦ*±vС>€Ш#%§<ў<°У#5€ЧСФ ЩЧ)С)Ч1С1Ф2Ш
-Џ
-Љ
-РRФSр 
-ђЧ С Ф ШЧСЧ&С&ЂGб% gУ.СЂF€HЩСW RЧ%5С%5Ч%<Т%<УWУWЂHа—’A“ЃJЂAЂq€!€QШ‡HЃHР
-.°!°BЧ4DС4DЧ4LС4LИSР3QР0RФSШ‡HЃHР
-  6Ё# ,Р/Ф0Ш‡HЃHР
-%ЁЁ8°CЁ.Р'9Ф:Ш‡HЃHР
--°°8ёC°.Р/AФBа‡L‚LРIФJШ 	Ч С Ч !Ч !Р !Ш€	ШJQЧJZСJZФJ\Ф]ТJ\БАђ#ђlС#ЎUЁ3Ёz©?У%;Т;СJ\Т]€ШЧ)С)Ч3С3Ч9С9Ц;‰I€FђAШ—j‘j ЁЁ7©У4€GШ78ё±yАEУ7Iђ7Qw™ZС'Ё1ЁU©8Т3РPQРRYСPZР]dСPdРhiРjoСhpСOp€CШЧСШ ! &Ў	Ш$Ш"# FЎ)Щ! ! GЎ*ЁaУ0Щ"'Ё °У"3Щ! ! FЎ)ЁQУ/Щ! ! FЎ)ЁQУ/Ш  ™jЩS !“}с
-ц 
+import pandas as pd
+import streamlit as st
 
-с  <р 	
-ЏЉђR—\’\ )У,А$РSWУXа
-Џ Љ Р9Ф:а‡L‚LР.Ф/ШђgnС-Ч2С2°Eё6°?УCСDЧPСPРQ]РinРPРoЂGШ‡L‚Lђ—‘bУ!°tИТMа‡L‚LР.Ф/Ш 	Ч С Ч Ч Р Ш—L’L Ч!1С!1Ч!8С!8У9€	Ш
-ЏЉђY°DАTТJа9 XС.°'С9С:€ШЏ|Џ|€|Ш& ™-Ё!С+С,€DШF 5™MЁAС-С.€FЩ4“yЎ3 vЈ;С.°С4€HШ ™;џ?™?У,€LЩV E™]Ч.С.У0У1€JШ9CАa»LЁ:Т5ЙUРSXЛ\€MШ04·
-·
-ђd5‘kЧ&С&Ф(А€GШ39·<·<ђve‘}Ч)С)Ф+АS€Hа!#§ўЁAЈС€BђђBBШЏI‰IР3±Sёі[ФAШЏI‰Iђj XЁc N°!Р"4Ф5ШЏI‰Iђo°
-БАuГУ0MЎuРVcРdgРUhФjШЏI‰IР5ёё7А3ё-Р7HФIШЏI‰IР3°qёА#ёР5GФHа
-ЧТШ-ШЧС 5РР)Ч0С0°У=Ш#Шф		
-р 
-Ч С Ч &Ч &Ш
-ЏЉР4Ф5Ш—L’L Ч!1С!1Ч!@С!@УAЧKСKИLУY€	Ш
-Џ
-Љ
-ђiФ а	
-ЏЉРAХ	BШ
-ЏЉШЧС ёРР>Ш $Шт 	
-ч 
-Cр ‡9‚9Р
-9Ч:С:Ш,ЂBЧСФШ!#ЂBЧСФШ ЂBЧСФШ&(ЂBЧСФ#Ш‡J‚JР:Ф;а ‡
-‚
-р|хщт} ?шр у Ш
-ЏЉ‘ђS“ЧТырьу$ ^чt 
-CХ	Bъs=   Е
+COINS_COUNT = 150
+START_BALANCE = 1000.0
+MAX_POSITIONS = 10
+POSITION_SHARE = 0.05
+STOP_LOSS_PCT = 0.03
+TAKE_PROFIT_PCT = 0.06
 
-]- Е](Е)A]- Л^Ъ?!^Э(]- Э-^Э3^Ю^Ю
-^- 
+st.set_page_config(page_title="NOVA AI Trader v1.0", layout="wide")
+st.title("NOVA AI Trader v1.0.1 — Stable Paper Trading")
+st.caption("Сканер 150 монет + автоматические виртуальные сделки. Реальные деньги не подключены.")
+
+def get_json(url, headers=None, retries=3):
+    request_headers = {
+        "User-Agent": "Mozilla/5.0 NOVA-AI-Trader",
+        "Accept": "application/json",
+    }
+    if headers:
+        request_headers.update(headers)
+
+    last_error = None
+    for attempt in range(retries):
+        try:
+            request = urllib.request.Request(url, headers=request_headers)
+            with urllib.request.urlopen(request, timeout=35) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except Exception as exc:
+            last_error = exc
+            time.sleep(2 ** attempt)
+    raise RuntimeError(f"Источник данных недоступен: {last_error}")
+
+@st.cache_data(ttl=300)
+def fetch_market():
+    params = urllib.parse.urlencode({
+        "vs_currency": "usd",
+        "order": "market_cap_desc",
+        "per_page": COINS_COUNT,
+        "page": 1,
+        "sparkline": "true",
+        "price_change_percentage": "1h,24h,7d,30d",
+    })
+
+    key = st.secrets.get("COINGECKO_API_KEY", "")
+    headers = {"x-cg-demo-api-key": key} if key else {}
+    url = f"https://api.coingecko.com/api/v3/coins/markets?{params}"
+
+    data = get_json(url, headers=headers)
+    if not isinstance(data, list):
+        raise RuntimeError("CoinGecko вернул неожиданный ответ")
+    return data
+
+@st.cache_data(ttl=1800)
+def fetch_fear_greed():
+    try:
+        item = get_json("https://api.alternative.me/fng/?limit=1")["data"][0]
+        return int(item["value"]), item["value_classification"]
+    except Exception:
+        return 50, "Neutral"
+
+def safe(value, default=0.0):
+    return float(value) if value is not None else default
+
+def trend_score(prices):
+    if not prices or len(prices) < 24:
+        return 0
+    series = pd.Series(prices, dtype="float64")
+    short = series.tail(24).mean()
+    long = series.tail(72).mean() if len(series) >= 72 else series.mean()
+    return 1 if short > long * 1.01 else -1 if short < long * 0.99 else 0
+
+def evaluate(coin, fear_value):
+    ch1h = safe(coin.get("price_change_percentage_1h_in_currency"))
+    ch24 = safe(coin.get("price_change_percentage_24h_in_currency"))
+    ch7d = safe(coin.get("price_change_percentage_7d_in_currency"))
+    ch30 = safe(coin.get("price_change_percentage_30d_in_currency"))
+
+    market_cap = safe(coin.get("market_cap"))
+    volume = safe(coin.get("total_volume"))
+    volume_ratio = volume / market_cap if market_cap > 0 else 0
+
+    current = safe(coin.get("current_price"))
+    high24 = safe(coin.get("high_24h"))
+    low24 = safe(coin.get("low_24h"))
+    range24 = (high24 - low24) / current * 100 if current > 0 else 0
+
+    sparkline = (coin.get("sparkline_in_7d") or {}).get("price") or []
+    trend7 = trend_score(sparkline)
+
+    score = 50
+    reasons = []
+
+    for value, weight, label in [
+        (ch1h, 1.0, "1ч"),
+        (ch24, 1.5, "24ч"),
+        (ch7d, 0.7, "7д"),
+        (ch30, 0.25, "30д"),
+    ]:
+        score += max(-12, min(12, value * weight))
+        if abs(value) >= 2:
+            reasons.append(f"{label}: {value:+.1f}%")
+
+    if volume_ratio >= 0.15:
+        score += 8
+        reasons.append("высокая ликвидность")
+    elif volume_ratio >= 0.05:
+        score += 4
+        reasons.append("нормальная ликвидность")
+    elif volume_ratio < 0.01:
+        score -= 10
+        reasons.append("низкая ликвидность")
+
+    score += trend7 * 8
+    if trend7 > 0:
+        reasons.append("7-дневный тренд вверх")
+    elif trend7 < 0:
+        reasons.append("7-дневный тренд вниз")
+
+    if range24 > 20:
+        score -= 14
+        reasons.append("экстремальная волатильность")
+    elif range24 > 10:
+        score -= 7
+        reasons.append("высокая волатильность")
+
+    if fear_value >= 70:
+        score += 3 if ch24 > 0 else -3
+    elif fear_value <= 30:
+        score -= 3 if ch24 < 0 else 2
+
+    nova_score = int(max(0, min(100, round(score))))
+
+    if nova_score >= 75 and ch24 > 0 and trend7 >= 0 and volume_ratio >= 0.01:
+        signal = "BUY"
+    elif nova_score <= 25 and ch24 < 0 and trend7 <= 0 and volume_ratio >= 0.01:
+        signal = "SELL"
+    else:
+        signal = "WAIT"
+
+    risk = "Высокий" if range24 > 12 or market_cap < 100_000_000 else "Средний" if range24 > 6 else "Низкий"
+
+    return {
+        "id": coin.get("id"),
+        "Монета": coin.get("name"),
+        "Тикер": str(coin.get("symbol", "")).upper(),
+        "Место": coin.get("market_cap_rank"),
+        "Сигнал": signal,
+        "NOVA Score": nova_score,
+        "Цена": current,
+        "24ч, %": round(ch24, 2),
+        "7д, %": round(ch7d, 2),
+        "Объём/капитализация": round(volume_ratio, 4),
+        "Риск": risk,
+        "Причина": "; ".join(reasons[:5]) or "нет сильного преимущества",
+    }
+
+def init_state():
+    if "balance" not in st.session_state:
+        st.session_state.balance = START_BALANCE
+    if "positions" not in st.session_state:
+        st.session_state.positions = {}
+    if "trades" not in st.session_state:
+        st.session_state.trades = []
+    if "equity_history" not in st.session_state:
+        st.session_state.equity_history = []
+
+def close_position(symbol, price, reason):
+    position = st.session_state.positions[symbol]
+    if position["side"] == "BUY":
+        pnl = (price - position["entry"]) * position["qty"]
+    else:
+        pnl = (position["entry"] - price) * position["qty"]
+
+    st.session_state.balance += position["allocated"] + pnl
+    st.session_state.trades.append({
+        "Время": datetime.now(timezone.utc).isoformat(),
+        "Тикер": symbol,
+        "Тип": "CLOSE",
+        "Сторона": position["side"],
+        "Цена": round(price, 8),
+        "Количество": position["qty"],
+        "PnL": round(pnl, 4),
+        "Причина": reason,
+        "Баланс": round(st.session_state.balance, 2),
+    })
+    del st.session_state.positions[symbol]
+
+def open_position(row):
+    if len(st.session_state.positions) >= MAX_POSITIONS:
+        return
+    symbol = row["Тикер"]
+    if symbol in st.session_state.positions:
+        return
+
+    allocation = min(
+        st.session_state.balance * POSITION_SHARE,
+        st.session_state.balance / max(1, MAX_POSITIONS - len(st.session_state.positions))
+    )
+    if allocation < 10:
+        return
+
+    price = float(row["Цена"])
+    qty = allocation / price
+    side = row["Сигнал"]
+
+    stop = price * (1 - STOP_LOSS_PCT) if side == "BUY" else price * (1 + STOP_LOSS_PCT)
+    take = price * (1 + TAKE_PROFIT_PCT) if side == "BUY" else price * (1 - TAKE_PROFIT_PCT)
+
+    st.session_state.balance -= allocation
+    st.session_state.positions[symbol] = {
+        "side": side,
+        "entry": price,
+        "qty": qty,
+        "allocated": allocation,
+        "stop": stop,
+        "take": take,
+        "score": row["NOVA Score"],
+        "name": row["Монета"],
+    }
+    st.session_state.trades.append({
+        "Время": datetime.now(timezone.utc).isoformat(),
+        "Тикер": symbol,
+        "Тип": "OPEN",
+        "Сторона": side,
+        "Цена": round(price, 8),
+        "Количество": qty,
+        "PnL": 0,
+        "Причина": f"NOVA Score {row['NOVA Score']}",
+        "Баланс": round(st.session_state.balance, 2),
+    })
+
+def update_portfolio(scan_df):
+    prices = {row["Тикер"]: float(row["Цена"]) for _, row in scan_df.iterrows()}
+
+    for symbol in list(st.session_state.positions.keys()):
+        if symbol not in prices:
+            continue
+        price = prices[symbol]
+        p = st.session_state.positions[symbol]
+
+        if p["side"] == "BUY":
+            if price <= p["stop"]:
+                close_position(symbol, price, "STOP")
+            elif price >= p["take"]:
+                close_position(symbol, price, "TAKE")
+        else:
+            if price >= p["stop"]:
+                close_position(symbol, price, "STOP")
+            elif price <= p["take"]:
+                close_position(symbol, price, "TAKE")
+
+    candidates = scan_df[
+        scan_df["Сигнал"].isin(["BUY", "SELL"])
+        & scan_df["Риск"].isin(["Низкий", "Средний"])
+    ].sort_values("NOVA Score", ascending=False)
+
+    for _, row in candidates.iterrows():
+        if len(st.session_state.positions) >= MAX_POSITIONS:
+            break
+        open_position(row)
+
+    equity = st.session_state.balance
+    for symbol, p in st.session_state.positions.items():
+        price = prices.get(symbol, p["entry"])
+        current_value = p["qty"] * price
+        if p["side"] == "BUY":
+            equity += current_value
+        else:
+            equity += p["allocated"] + (p["entry"] - price) * p["qty"]
+
+    st.session_state.equity_history.append({
+        "Время": datetime.now(timezone.utc),
+        "Капитал": round(equity, 2),
+    })
+
+def current_equity(scan_df):
+    prices = {row["Тикер"]: float(row["Цена"]) for _, row in scan_df.iterrows()}
+    equity = st.session_state.balance
+    floating = 0.0
+
+    for symbol, p in st.session_state.positions.items():
+        price = prices.get(symbol, p["entry"])
+        if p["side"] == "BUY":
+            pnl = (price - p["entry"]) * p["qty"]
+        else:
+            pnl = (p["entry"] - price) * p["qty"]
+        floating += pnl
+        equity += p["allocated"] + pnl
+
+    return equity, floating
+
+init_state()
+fear_value, fear_label = fetch_fear_greed()
+
+c1, c2, c3, c4 = st.columns(4)
+c1.metric("Fear & Greed", f"{fear_value} — {fear_label}")
+c2.metric("Стартовый капитал", f"${START_BALANCE:.2f}")
+c3.metric("Макс. позиций", MAX_POSITIONS)
+c4.metric("Риск/доходность", f"{STOP_LOSS_PCT*100:.0f}% / {TAKE_PROFIT_PCT*100:.0f}%")
+
+if st.button("Сканировать и обновить демо-сделки", type="primary"):
+    try:
+        market = fetch_market()
+        rows = [evaluate(coin, fear_value) for coin in market]
+        st.session_state.scan_df = pd.DataFrame(rows)
+        update_portfolio(st.session_state.scan_df)
+        st.success("Сканирование и Paper Trading обновлены.")
+    except Exception as exc:
+        st.error(str(exc))
+
+if "scan_df" in st.session_state:
+    scan_df = st.session_state.scan_df
+
+    equity, floating = current_equity(scan_df)
+    realized = sum(t["PnL"] for t in st.session_state.trades if t["Тип"] == "CLOSE")
+
+    a, b, c, d = st.columns(4)
+    a.metric("Свободный баланс", f"${st.session_state.balance:.2f}")
+    b.metric("Капитал", f"${equity:.2f}")
+    c.metric("Плавающий PnL", f"${floating:.2f}")
+    d.metric("Реализованный PnL", f"${realized:.2f}")
+
+    st.subheader("Открытые виртуальные позиции")
+    if st.session_state.positions:
+        positions = []
+        prices = {row["Тикер"]: float(row["Цена"]) for _, row in scan_df.iterrows()}
+        for symbol, p in st.session_state.positions.items():
+            current = prices.get(symbol, p["entry"])
+            pnl = (current - p["entry"]) * p["qty"] if p["side"] == "BUY" else (p["entry"] - current) * p["qty"]
+            positions.append({
+                "Монета": p["name"],
+                "Тикер": symbol,
+                "Сторона": p["side"],
+                "Вход": round(p["entry"], 8),
+                "Текущая": round(current, 8),
+                "Стоп": round(p["stop"], 8),
+                "Тейк": round(p["take"], 8),
+                "NOVA Score": p["score"],
+                "PnL": round(pnl, 4),
+            })
+        st.dataframe(pd.DataFrame(positions), use_container_width=True, hide_index=True)
+    else:
+        st.info("Открытых позиций нет.")
+
+    st.subheader("Лучшие сигналы")
+    signals = scan_df[scan_df["Сигнал"].isin(["BUY", "SELL"])].sort_values("NOVA Score", ascending=False)
+    st.dataframe(signals.head(20), use_container_width=True, hide_index=True)
+
+    st.subheader("История сделок")
+    if st.session_state.trades:
+        trades_df = pd.DataFrame(st.session_state.trades)
+        st.dataframe(trades_df, use_container_width=True, hide_index=True)
+
+        closed = trades_df[trades_df["Тип"] == "CLOSE"]
+        if not closed.empty:
+            wins = closed[closed["PnL"] > 0]
+            losses = closed[closed["PnL"] < 0]
+            win_rate = len(wins) / len(closed) * 100
+            gross_profit = wins["PnL"].sum()
+            gross_loss = abs(losses["PnL"].sum())
+            profit_factor = gross_profit / gross_loss if gross_loss > 0 else float("inf")
+            avg_win = wins["PnL"].mean() if not wins.empty else 0.0
+            avg_loss = losses["PnL"].mean() if not losses.empty else 0.0
+
+            s1, s2, s3, s4, s5 = st.columns(5)
+            s1.metric("Закрыто сделок", len(closed))
+            s2.metric("Win rate", f"{win_rate:.1f}%")
+            s3.metric(
+                "Profit Factor",
+                "∞" if profit_factor == float("inf") else f"{profit_factor:.2f}",
+            )
+            s4.metric("Средняя прибыль", f"${avg_win:.2f}")
+            s5.metric("Средний убыток", f"${avg_loss:.2f}")
+
+        st.download_button(
+            "Скачать сделки CSV",
+            trades_df.to_csv(index=False).encode("utf-8-sig"),
+            "nova_paper_trades.csv",
+            "text/csv",
+        )
+
+    if st.session_state.equity_history:
+        st.subheader("Кривая капитала")
+        equity_df = pd.DataFrame(st.session_state.equity_history).set_index("Время")
+        st.line_chart(equity_df)
+
+    with st.expander("Полный рейтинг 150 монет"):
+        st.dataframe(
+            scan_df.sort_values("NOVA Score", ascending=False),
+            use_container_width=True,
+            hide_index=True,
+        )
+
+if st.button("Сбросить демо-портфель"):
+    st.session_state.balance = START_BALANCE
+    st.session_state.positions = {}
+    st.session_state.trades = []
+    st.session_state.equity_history = []
+    st.success("Демо-портфель сброшен.")
+
+st.warning(
+    "Важно: Streamlit Community Cloud не выполняет код 24/7 без внешнего планировщика. "
+    "Эта версия обновляет сделки при нажатии кнопки. Следующий этап — подключение постоянного сервера."
+)
