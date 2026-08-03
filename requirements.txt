@@ -1,5 +1,2 @@
-# NOVA AI Trader v1.0.1 — Stable Test
-
-Обновление рабочей v1.0: до 10 виртуальных позиций, риск 5% капитала на позицию, Win Rate, Profit Factor, средняя прибыль и средний убыток.
-
-Замените в GitHub app.py и requirements.txt.
+streamlit==1.47.1
+pandas=2.3.1
